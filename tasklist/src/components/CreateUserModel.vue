@@ -94,7 +94,7 @@ export default {
 
       this.saveUserData(userData).then((data) => {
         if (Object.keys(data).length) {
-          console.log("User Data saved successfully");
+          console.log("Author Data saved successfully");
         }
         this.getUsersData();
       });

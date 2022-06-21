@@ -27,12 +27,13 @@ export const APICall = {
             }
         }).then((data) => data.json())
     },
-    put(URL, id, data) {
+    put(URL, id, data,token) {
         return fetch(`${BASE_URL}${URL}/${id}`, {
             method: "PUT",
             body: JSON.stringify({ ...data }),
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization" : 'Bearer' + ' ' + token
             }
         }).then((data) => data.json())
     }

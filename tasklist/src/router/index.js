@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import TodoView from '../views/TodoView.vue'
+import EditUser from '../views/EditUser.vue'
 
 Vue.use(VueRouter)
 
@@ -17,6 +18,11 @@ const routes = [
     path: '/todo',
     name: 'todo',
     component:TodoView
+  },
+  {
+    path: '/edit',
+    name: 'EditUser',
+    component: EditUser
   },
   /*{
     path: '/about',

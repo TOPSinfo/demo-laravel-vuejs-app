@@ -37,6 +37,9 @@ export default{
       this.deleteUserData = data.item;
       this.$bvModal.show("delete-user-modal");
     },
+    editUser(data) {
+      this.$router.push({ name: "EditUser", params: { userData: data.item } });
+    },
      deleteUserDataAPICall() {
       if (this.deleteUserData.id) {
         const token=localStorage.getItem('auth_token');
@@ -49,3 +52,17 @@ export default{
     }
 }
 </script>
+
+<style scoped>
+div{
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  width:75%;
+  margin-left:200px;
+  margin-top:25px;
+}
+</style>

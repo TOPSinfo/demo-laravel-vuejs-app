@@ -1,12 +1,34 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/login">Login</router-link> |
-      <router-link to="/register">Register</router-link>
+      <router-link v-if="loggedIn" to="/login">Login</router-link> |
+      <router-link v-if="loggedIn" to="/register">Register</router-link>
+       
     </nav>
     <router-view/>
   </div>
 </template>
+
+<script>
+import { APICall } from "./utils/common";
+  export default{
+    computed:{
+      loggedIn(){
+        return localStorage.getItem('loggedIn');
+      },
+      methods:{
+        logout(){
+          const token=localStorage.getItem('auth_token');
+          APICall.post("/logout",token).then((data) => {
+          this.$router.push("/login")
+          console.log("logout successfully",data)
+
+          });
+        }
+      }
+    }
+  }
+</script>
 
 <style>
 #app {

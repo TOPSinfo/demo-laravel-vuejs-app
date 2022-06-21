@@ -7,7 +7,7 @@
       v-show="true"
       @ok="handleOk"
     >
-      <p class="my-4">Are you sure you want to delete user?</p>
+      <p class="my-4">Are you sure you want to delete this Author?</p>
     </b-modal>
   </div>
 </template>
