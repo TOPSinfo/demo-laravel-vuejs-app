@@ -9,27 +9,30 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     // all books
-    public function index()
+    public function index(Request $request)
     {
-        $books = Task::all()->toArray();
+        $books = Task::all()->where('created_by',$request->id)->toArray();
         return array_reverse($books);
     }
 
     // add book
     public function add(Request $request)
     {
+
         $request->validate([
-            'name' => 'required',
-            'author' => 'required',
-            'status' => 'required'
+            'name' => 'required'
+            //'author' => 'required',
+            //'status' => 'required'
         ]);
 
         $book = new Task([
             'name' => $request->name,
-            'author' => $request->author,
-            'status' => $request->status
+            'created_by' => $request->created_by,
+            'author' => '',
+            'status' => ''
         ]);
         $book->save();
+
 
         return response()->json('The book successfully added');
     }
@@ -45,9 +48,9 @@ class TaskController extends Controller
     public function update($id, Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'author' => 'required',
-            'status' => 'required'
+            'name' => 'required'
+           // 'author' => 'required',
+           // 'status' => 'required'
         ]);
 
         $book = Task::find($id);
