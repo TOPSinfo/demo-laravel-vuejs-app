@@ -47,6 +47,7 @@ class UserController extends Controller
 
         if(!$user || !Hash::check($request->password, $user->password)) {
             return response([
+                'status'  => false,
                 'message' => 'Wrong email or password!'
             ], 401);
         }
@@ -55,6 +56,7 @@ class UserController extends Controller
         $token = $user->createToken('myapptoken')->plainTextToken;
 
         $response = [
+            'status'  => true,
             'user' =>  $user,
             'token' => $token
         ];
