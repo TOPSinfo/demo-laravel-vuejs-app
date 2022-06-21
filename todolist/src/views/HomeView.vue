@@ -1,18 +1,36 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Product :items="items"/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Product from '../components/Product.vue';
+import { APICall } from '../utils/comman.js'
+import { mapGetters } from "vuex";
 
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
+export default{
+    components: { Product },
+    data(){
+      return{
+        items:[]
+      }
+    },
+    computed: {
+    ...mapGetters({ tab: "loggedIn" }),
+  },
+  mounted(){
+        const token = localStorage.getItem("auth_token");
+        if(this.tab){
+        APICall.get('/tasks',token).then((res)=>{
+            console.log("home-page",res);
+            this.items.push(res);
+            console.log("item",this.items)
+        }).catch((err)=>{
+            console.log(err);
+        })
+      }
   }
+
 }
 </script>

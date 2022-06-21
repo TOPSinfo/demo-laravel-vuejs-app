@@ -1,11 +1,19 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link v-if="!tab" to="/login">login</router-link> |
+      <router-link v-if="!tab" to="/register">register</router-link>
+      <router-link v-if="tab" to="/logout">Logout</router-link>
   </nav>
   <router-view/>
 </template>
-
+<script>
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters({ tab: "loggedIn" }),
+  },
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
