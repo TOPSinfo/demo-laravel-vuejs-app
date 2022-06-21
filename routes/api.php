@@ -9,7 +9,7 @@ Route::post('register', [UserController::class, 'register']);
 Route::post('logout', [UserController::class, 'logout'])->middleware('auth:sanctum');
 
 Route::group(['prefix' => 'tasks', 'middleware' => 'auth:sanctum'], function () {
-    Route::get('/', [TaskController::class, 'index']);
+    Route::get('/{id}', [TaskController::class, 'index']);
     Route::post('add', [TaskController::class, 'add']);
     Route::get('edit/{id}', [TaskController::class, 'edit']);
     Route::post('update/{id}', [TaskController::class, 'update']);
