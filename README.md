@@ -24,7 +24,7 @@
 
 * Git clone
 ```
-$ git clone https://gitlab.com/aleksandar.syncit/laravel-vuejs-app.git
+$ git clone <url of git repo.>
 ```
 
 Step by Step
@@ -52,5 +52,7 @@ $ php artisan migrate
 ```
 $ php artisan serve
 ```
+
+To setup vue project refer ReadMe file of todoapp folder.
 
 * That's everything on the backend part.
