@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     // all books
-    public function index(Request $request)
+    public function index($id)
     {
-        $books = Task::all()->where('created_by',$request->id)->toArray();
+        $books = Task::all()->where('created_by',$id)->toArray();
         return array_reverse($books);
     }
 
@@ -29,7 +29,7 @@ class TaskController extends Controller
             'name' => $request->name,
             'created_by' => $request->created_by,
             'author' => '',
-            'status' => ''
+            'status' => 0
         ]);
         $book->save();
 
