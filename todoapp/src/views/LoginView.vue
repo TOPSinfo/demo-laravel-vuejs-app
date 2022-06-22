@@ -44,12 +44,14 @@ export default {
             console.log('login successfull', Response)
             window.localStorage.setItem('auth_token', Response.token)
             window.localStorage.setItem('id', Response.user.id)
+            window.localStorage.setItem('name', Response.user.name)
             this.token = Response.token
             this.id = Response.id
             console.log(this.token);
             this.HomeView();
             //console.log("this.taskdata",this.taskdata)
             this.$router.push('/list')
+            location.reload();
           }else{
             alert('Please check user name and password!')
           }

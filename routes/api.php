@@ -14,4 +14,5 @@ Route::group(['prefix' => 'tasks', 'middleware' => 'auth:sanctum'], function () 
     Route::get('edit/{id}', [TaskController::class, 'edit']);
     Route::post('update/{id}', [TaskController::class, 'update']);
     Route::delete('delete/{id}', [TaskController::class, 'delete']);
+    Route::post('completed/{id}', [TaskController::class, 'completed']);
 });

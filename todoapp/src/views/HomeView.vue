@@ -13,5 +13,14 @@ export default {
   components: {
     mainBody,
   },
+  beforeRouteEnter(to, from, next) {
+    const token = localStorage.getItem("auth_token");
+
+    if (token) {
+      next();
+    } else {
+      next({ path: "/" });
+    }
+  },
 };
 </script>

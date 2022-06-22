@@ -59,6 +59,14 @@ class TaskController extends Controller
         return response()->json('The book successfully updated');
     }
 
+    public function completed($id, Request $request)
+    {
+        $book = Task::find($id);
+        $book->update($request->all());
+
+        return response()->json('Todo status successfully updated');
+    }
+
     // delete book
     public function delete($id)
     {
