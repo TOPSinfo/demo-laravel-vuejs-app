@@ -34,7 +34,7 @@ export default{
   },
   methods:{
      openConfirmationModal(data) {
-      this.deleteUserData = data.item;
+      this.deleteUserData = data.id;
       this.$bvModal.show("delete-user-modal");
     },
     editUser(data) {

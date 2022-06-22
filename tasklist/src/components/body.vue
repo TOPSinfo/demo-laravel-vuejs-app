@@ -4,7 +4,7 @@
 		variant="primary"
 		class="button"
 		@click="$bvModal.show('create-user-modal')">
-		Create User</b-button>
+		Create Todo	</b-button>
 		<dataTable :userData="userData" :getUsersData="getUsersData"/>
 		<create-user-modal :getUsersData="getUsersData"/>
 	</div>

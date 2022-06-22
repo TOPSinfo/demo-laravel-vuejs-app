@@ -3,7 +3,7 @@
     <b-modal
       id="create-user-modal"
       ref="modal"
-      title="Enter User Details"
+      title="Enter Todo"
       v-show="true"
       @show="resetModal"
       @hidden="resetModal"
@@ -94,7 +94,7 @@ export default {
 
       this.saveUserData(userData).then((data) => {
         if (Object.keys(data).length) {
-          console.log("Author Data saved successfully");
+          console.log("Todo saved successfully");
         }
         this.getUsersData();
       });
